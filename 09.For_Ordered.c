@@ -13,7 +13,7 @@ int main()
         #pragma omp ordered
         {
             // This part runs in sequence (0 - 4)
-            printf("Thread %d processes teration %d\n", omp_get_thread_num(), i);
+            printf("Thread %d processes iteration %d\n", omp_get_thread_num(), i);
         }
     }
 return 0;
