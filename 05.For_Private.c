@@ -12,9 +12,9 @@ int main()
     #pragma omp parallel for private(c)
 
     for(int i = 0; i < N;i++){
-        printf("The thred %d value is %d\n",omp_get_thread_num(),c);
+        printf("The thread %d value is %d\n",omp_get_thread_num(),c);
         c = a + b;    //private
-        printf("The thred %d value is %d\n",omp_get_thread_num(),c);
+        printf("The thread %d value is %d\n",omp_get_thread_num(),c);
     }
     return 0;
 }
