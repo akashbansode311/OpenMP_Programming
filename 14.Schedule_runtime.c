@@ -15,3 +15,6 @@ int main(int argc, char *argv[])
 
     return 0;
 }
+
+# After writing the code set the below environment variable.
+export OMP_SCHEDULE="static,2"
