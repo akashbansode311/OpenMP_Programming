@@ -11,8 +11,6 @@ int main()
         {
             printf("Thread %d executes single block.\n",
                    omp_get_thread_num());
-
-            for (volatile long i = 0; i < 100000000; i++);
         }
 
         printf("Thread %d continues execution.\n",
