@@ -3,26 +3,19 @@
 
 int main()
 {
+    int N = 10;
+
     #pragma omp parallel
     {
         #pragma omp single
         {
-            #pragma omp task
+            for (int i = 0; i < N; i++)
             {
-                printf("Task 1 executed by thread %d\n",
-                       omp_get_thread_num());
-            }
-
-            #pragma omp task
-            {
-                printf("Task 2 executed by thread %d\n",
-                       omp_get_thread_num());
-            }
-
-            #pragma omp task
-            {
-                printf("Task 3 executed by thread %d\n",
-                       omp_get_thread_num());
+                #pragma omp task
+                {
+                    printf("Task %d executed by thread %d\n",
+                           i, omp_get_thread_num());
+                }
             }
         }
     }
