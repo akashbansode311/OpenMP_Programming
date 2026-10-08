@@ -46,16 +46,6 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    /* ---------- Serial run (process 0 only) ----------
-    double serial_time = 0.0;
-    if (rank == 0) {
-        double t = MPI_Wtime();
-        matmul(A, B, C, N);
-        serial_time = MPI_Wtime() - t;
-        printf("Serial Time: %f sec\n", serial_time);
-    }
-    */
-
     /* ---------- MPI run ---------- */
     MPI_Barrier(MPI_COMM_WORLD);
     double start = MPI_Wtime();
@@ -79,7 +69,6 @@ int main(int argc, char *argv[]) {
     /* ---------- Results ---------- */
     if (rank == 0) {
         printf("MPI Time:    %f sec (%d processes)\n", end - start, size);
-        //printf("Speedup:     %.2fx\n", serial_time / (end - start));
         printf("Check: C[0][0] = %.0f (expected %d)\n", C[0], N);
     }
 
